@@ -1,0 +1,148 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+	<title>CompanyManager</title>
+{% load static %}
+<link rel="stylesheet" type= "text/css" href="{% static 'main/sy.css' %}">
+</head>
+<div style="padding:10px;">
+  <style>
+	input{
+	  width:100px;
+	  text-align:center;
+	}
+	table.table{
+			border-collapse: separate;
+			border-spacing: 1px;
+			backcolor:#11111;
+			text-align: left;
+			line-height: 1.5;
+			border-top: 1px solid #ccc;
+			margin : 20px 10px;
+	}
+	table.table tr {
+			 width: 200px;
+			 padding: 10px;
+			font-weight: bold;
+			vertical-align: top;
+			border-bottom: 1px solid #ccc;
+	}
+	table.table td {
+			 width: 200px;
+			 padding: 10px;
+			 vertical-align: top;
+			 border-bottom: 1px solid #ccc;
+	}
+</style>
+    <body>
+        <a href="/" style="text-decoration:none;color:black;">
+			<h1>Company Manager</h1>
+		</a>
+		<div class="userInfoBox" style="display:inline-block;">
+			<form class="profilebox" name="profilebox" method="post" action="/login/">
+				<img class="profileImg" src="../static/profile.png" align= "center">
+				
+				{%if request.session.number == None %}
+				<input type="text" name="id" class="login">
+				<input type="password" name="pw" class="login">
+				
+				<div class="button_set">
+					<a href="/register" style="text-decoration:none;">
+					<button type="button" name="register_bt" class="main_bt">
+					회원가입
+					</button>
+					</a>
+					
+					<button type="submit" name="login_bt" class="main_bt">
+					로그인
+					</button>
+				</div>
+				{% else %}
+				<div class="profile">
+				사원 번호 : {{ request.session.number }}
+				</div>
+				<div class="profile">
+				이름 : {{ request.session.name }}
+				</div>
+				<div class="button_set" >
+					<a href="/register/fix/" style="text-decoration:none;">
+					<button type="button" name="fix_bt" class="main_bt">
+					정보 수정
+					</button>
+					</a>
+					<a href="/register/logout/" style="text-decoration:none;">
+					<button type="button" class="main_bt" name="logout_bt" >
+					로 그 아 웃
+					</button>
+					</a>
+				</div>
+				{% endif %}
+				
+			</form>
+		</div>
+		
+		
+		<div style="width: 70%; vertical-align:top;display:inline-block;
+		top:0;margin:0 auto;">
+		<div class="menuBox" id="menuBoxHeader">
+			<div class="menuButtonBox">
+				<a class="menuButton" href="/notice/1">
+					<img class="menuImg" src="../static/notice.png" align= "center">
+					<div class="tt">공지 사항</div>
+				</a>
+			</div>
+			<div class="menuButtonBox">
+				
+				<a class="menuButton" href="/time/1">
+					<img class="menuImg" src="../static/time.png" >
+					<div class="tt">일정</div>
+				</a>
+			</div>
+			<div class="menuButtonBox">
+				<a class="menuButton"  href="/money/1">
+					<img class="menuImg" src="../static/money.png" align= "center">
+					<div class="tt">급여</div>
+				</a>
+			</div>
+			<div class="menuButtonBox">
+				<a class="menuButton" href="/setting">
+					<img class="menuImg" src="../static/setting.png" align= "center">
+					<div class="tt">설정</div>
+				</a>
+			</div>
+		</div>
+		
+        <form method = "POST" action = "./write/input/">
+                <table  style="padding-top:50px" align = center width=700 border=0 cellpadding=2 >
+                        <tr>
+							<td height=20 align= center bgcolor=#00000><font color=white> 게시글 작성</font></td>
+                        </tr>
+                        <tr>
+                        <td bgcolor=white>
+                        <table class = "table">
+							<tr>
+								<td>제목</td>
+							</tr>
+							<td>
+							<input type = "text" name = "title" size=80 style="width:300px;"></td>
+							<tr>
+								<td>내용</td>
+							</tr>
+								<td><textarea name = "content" cols=85 rows=15></textarea></td>
+							<tr>
+								<td>비밀번호</td>
+							</tr>
+								<td><input type = "password" name = "pw" size="20" maxlength=20></td>
+							</table>
+
+							<center>
+								<input type = "submit" value="작 성">
+							</center>
+                        </td>
+                        </tr>
+                </table>
+                </form>
+		</body>
+    </head>
+</html>

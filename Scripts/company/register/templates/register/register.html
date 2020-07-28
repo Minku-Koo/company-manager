@@ -1,0 +1,69 @@
+﻿<!doctype html>
+<html>
+
+<head>
+<title>Company Manager</title>
+<meta charset="utf-8">
+<!--CSS 파일 불러오기-->
+{% load static %}
+<link rel="stylesheet" type= "text/css" href="{% static 'main/sy.css' %}">
+</head>
+<body style="width: 40%;height: 600px;margin: 90px auto;">
+
+<form name="register" method="post" id="register" action="/register/sign/" >
+	<h2>회 &nbsp;원&nbsp; 가&nbsp; 입</h2>
+	<table cellpadding="10px" cellspacing="10px;">
+		<tr>
+			<td class="register_info" >이름</td>
+			<td><input class="register_infut" name="user_name" type="text" ></td>
+		</tr>
+		<tr>
+			<td class="register_info">이메일</td>
+			<td><input class="register_infut" name="user_email" type="text"></td>
+		</tr>
+		<tr>
+			<td class="register_info">비밀번호</td>
+			<td><input class="register_infut" name="user_pw" type="password"></td>
+		</tr>
+		<tr>
+			<td class="register_info">비밀번호 확인</td>
+			<td><input class="register_infut" name="user_pwc" type="password"></td>
+		</tr>
+		<tr>
+			<td class="register_info">사원 번호</td>
+			<td><input class="register_infut" name="user_num" type="text"></td>
+		</tr>
+		<tr>
+			<td class="register_info">전화 번호</td>
+			<td><input class="register_infut" name="user_tel" type="text"></td>
+		</tr>
+		
+	</table>
+	
+	<div style="width:50%;margin:25px auto;">
+		<a href="/" style="text-decoration: none;">
+		<button class="register_bt" name="toMain" type="button">
+		메 인 으 로
+		</button>
+		</a>
+		<button class="register_bt" name="toRegister" type="submit">
+		가 입 하 기
+		</button>
+	</div>
+</form>
+
+
+</body>
+<!--JQuery 불러오기-->
+<script type="text/javascript"
+src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js">
+</script>
+<script  type = "text/javascript">
+    {% if message %}
+	    alert("{{ message }}");
+	{% endif %}
+</script>
+<script  type = "text/javascript">
+
+</script>
+</html>

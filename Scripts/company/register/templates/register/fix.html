@@ -1,0 +1,53 @@
+﻿<!doctype html>
+<html>
+
+<head>
+<title>Company Manager</title>
+<meta charset="utf-8">
+<!--CSS 파일 불러오기-->
+{% load static %}
+<link rel="stylesheet" type= "text/css" href="{% static 'main/sy.css' %}">
+
+
+</head>
+<body style="width: 40%;height: 600px;margin: 90px auto;">
+    
+	<form name="fixUser" method="post" class="fixUser" action="/register/fix/user/" >
+		<div style="width: 60%;margin: 0 auto;">	
+			<div>이 름</div>
+			<input name="name" type="text" class="fix_input" value={{name}}>
+			<div>이메일</div>
+			<input name="email" type="text" class="fix_input" value={{email}}>
+			<div>현재 비밀번호 (입력해야 정보 수정 가능)</div>
+			<input name="password" type="password" class="fix_input" >
+			<div>새 비밀번호 (비밀번호 변경 시, 입력)</div>
+			<input name="new_pw" type="password" class="fix_input" >
+			<div>새 비밀번호 확인</div>
+			<input name="new_pwc" type="password" class="fix_input" >
+		</div>
+		
+		<div style="width:50%;margin:25px auto;">
+			<a href="/" style="text-decoration:none">
+			<button class="main_bt" type="button" name="fix_bt">
+			메인으로
+			</button>
+			</a>
+			<button class="main_bt" type="submit" name="fix_bt">
+			정보 수정
+			</button>
+		</div>
+	</form>
+</body>
+<!--JQuery 불러오기-->
+<script type="text/javascript"
+src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js">
+</script>
+<script  type = "text/javascript">
+    {% if message %}
+	    alert("{{ message }}");
+	{% endif %}
+</script>
+<script  type = "text/javascript">
+
+</script>
+</html>

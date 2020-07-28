@@ -1,0 +1,164 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-widthm, intial-scale=1">
+	<title>CompanyManager</title>
+	 {% load static %}
+	<link rel="stylesheet" type= "text/css" href="{% static 'main/sy.css' %}">
+</head>
+	<div style="padding:10px;">
+	<style>
+	table.table{
+			border-collapse: separate;
+			border-spacing: 1px;
+			text-align: center;
+			float: center;
+			line-height: 2;
+			border-top: 5px solid #ccc;
+			margin : 10px 40px;
+	}
+	table.table tr {
+
+			padding: 10px;
+			font-weight: bold;
+			vertical-align: center;
+			float: center;
+			border-bottom: 1px solid #ccc;
+	}
+	table.table td {
+			 width: 150px;
+			 padding: 28px;
+			 vertical-align: left;
+			 border-bottom: 2px solid #ccc;
+	}
+	table.table ta {
+			 padding: 10px;
+			 border-bottom: 2px solid #ccc;
+			 float-align: center;
+	}
+	</style>
+<body>
+	<p style="text-align:center; float: center; clear:none">
+	<a href="/" style="text-decoration:none;color:black;">
+		<h1>Company Manager</h1>
+	</a>
+	<div class="userInfoBox" style="display:inline-block;">
+		<form class="profilebox" name="profilebox" method="post" action="/login/">
+			<img class="profileImg" src="../static/profile.png" align= "center">
+			
+			{%if request.session.number == None %}
+			<input type="text" name="id" class="login">
+			<input type="password" name="pw" class="login">
+			
+			<div class="button_set">
+				<a href="/register" style="text-decoration:none;">
+				<button type="button" name="register_bt" class="main_bt">
+				회원가입
+				</button>
+				</a>
+				
+				<button type="submit" name="login_bt" class="main_bt">
+				로그인
+				</button>
+			</div>
+			{% else %}
+			<div class="profile">
+			사원 번호 : {{ request.session.number }}
+			</div>
+			<div class="profile">
+			이름 : {{ request.session.name }}
+			</div>
+			<div class="button_set" >
+				<a href="/register/fix/" style="text-decoration:none;">
+				<button type="button" name="fix_bt" class="main_bt">
+				정보 수정
+				</button>
+				</a>
+				<a href="/register/logout/" style="text-decoration:none;">
+				<button type="button" class="main_bt" name="logout_bt" >
+				로 그 아 웃
+				</button>
+				</a>
+			</div>
+			{% endif %}
+			
+		</form>
+	</div>
+	
+	
+	<div style="width: 70%; vertical-align:top;display:inline-block;
+	top:0;margin:0 auto;">
+	<div class="menuBox" id="menuBoxHeader">
+		<div class="menuButtonBox">
+			<a class="menuButton" href="/notice/1">
+				<img class="menuImg" src="../static/notice.png" align= "center">
+				<div class="tt">공지 사항</div>
+			</a>
+		</div>
+		<div class="menuButtonBox">
+			<a class="menuButton" href="/time/1">
+				<img class="menuImg" src="../static/time.png" >
+				<div class="tt">일정</div>
+			</a>
+		</div>
+		<div class="menuButtonBox">
+			<a class="menuButton"  href="/money/1">
+				<img class="menuImg" src="../static/money.png" align= "center">
+				<div class="tt">급여</div>
+			</a>
+		</div>
+		<div class="menuButtonBox">
+			<a class="menuButton" href="/setting">
+				<img class="menuImg" src="../static/setting.png" align= "center">
+				<div class="tt">설정</div>
+			</a>
+		</div>
+	</div>
+	
+	<div style="padding:50px;">
+	<div class="container" style="margin-top: 10px;">
+	  <table class="ta" align="center">
+		  <tr style=" text-align= center;">
+			<td style="height=20; text-align= center; bgcolor=white;"><font color=black size=10> 사원 정보 및 급여 관리</font></td>
+		  </tr>
+	  </table>
+	<table class ="table table-striped"   style="width:90%;">
+		<p style="text-align:center; float: center; clear:none">
+	  <thead>
+		<tr>
+			<th>사원 이름</th>
+			<th>직 책</th>
+			<th>부 서</th>
+			<th>권 한</th>
+		</tr>
+	  </thead>
+	  {% for a in admin %}
+	  <a href="/setting/{{a.4}}">
+	  <tr>
+		  <td>
+			<a href="/setting/{{a.4}}" style="text-decoration:none;color:black">{{a.0}}</a>
+		  </td>
+		  {% if a.2 == "NULL" %}
+			  <td>정보 없음</td>
+		  {% else %}
+			  <td>{{a.1}}</td>
+		  {% endif %}
+		  {% if a.2 == "NULL" %}
+			  <td>정보 없음</td>
+		  {% else %}
+			  <td>{{a.2}} 부서</td>
+		  {% endif %}
+		  <td>{{a.3}}</td>
+	  </tr>
+	  {%endfor%}
+	</table>
+	</div>
+  </body>
+<script  type = "text/javascript">
+	{% if message %}
+		alert("{{ message }}");
+	{% endif %}
+</script>
+    </div>
+</html>

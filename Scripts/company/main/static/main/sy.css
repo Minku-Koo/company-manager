@@ -1,0 +1,181 @@
+﻿/*system*/
+body{
+	width:90%;
+	//height:90%;
+	margin: 3% auto;
+	//border: 2px solid black;
+}
+/*유저 정보 담는 좌측 박스*/
+.userInfoBox{
+	width: 20%;
+	border-right: 1px solid black;
+	height: 600px;
+	//margin-top: 50%;
+	//margin-bottom: -50%;
+	position: relative;
+}
+/*프로필 박스*/
+.profilebox{
+	//border: 2px solid red;
+	width: 100%;
+	height: 40%;
+	top: 50%;
+    margin-top: -50%;
+	position: absolute;
+}
+/*프로필 이미지*/
+.profileImg{
+	width: 70%;
+	height: 50%;
+	margin: 0 auto;
+	display: block;
+	margin-bottom: 20px;
+}
+/*로그인 입력 창*/
+.login{
+	width: 80%;
+	height: 20px;
+	margin: 10px auto;
+	display: block;
+}
+
+.button_set{
+	float: right;
+	display: inline-black;
+	width: 85%;
+}
+
+/*로그인 버튼*/
+.main_bt{
+	display: inline-black;
+	width: 40%;
+	height: 30px;
+	//margin-right: 10px;
+}
+/*메인메뉴*/
+.menuBox{
+	top: 60%;
+    margin-top: -10%;
+	margin-left: 70px;
+	position: absolute;
+	//border: 2px solid red;
+	width: 60%;
+	height: 150px;
+	display:inline-block;
+}
+#menuBoxHeader{
+	top: 0;
+	margin: 20px auto;
+}
+/*메인화면 메뉴 박스*/
+.menuButtonBox{
+	display:inline-block;
+	width: 24%;
+	height: 140px;
+	border: 0;
+}
+
+.menuButton{
+	//display:inline-block;
+	width: 90%;
+	height: 140px;
+	border: 0;
+	//margin: 0 auto;
+	font-size: 20px;
+	background-color: white;
+	text-decoration:none;
+	color:black;
+	
+}
+
+/*메뉴 이미지들*/
+.menuImg{
+	width: 100%;
+	height: 80%;
+	//margin: 0 auto;
+	//display:inline-block;
+	//position: relative;
+	vertical-align: top;
+	text-align: center;
+}
+.tt{
+	text-align: center;
+	font-size: 25px;
+}
+
+/***  여기까지 메인화면   **/
+/**    이제부터 회원가입    **/
+
+form{
+	//border: 2px solid blue;
+	width: 90%;
+	height: 90%;
+	margin: 10px auto;
+}
+
+h2{
+	font-size: 40px;
+	text-align: center;
+	margin: 20px 0;
+}
+
+table{
+	width: 70%;
+	margin: 0 auto;
+}
+.register_info{
+	text-align: right;
+	font-size: 18px;
+}
+
+.register_infut{
+	width: 170px;
+	height: 25px;
+	
+}
+
+.register_bt{
+	width: 140px;
+	height: 35px;
+	font-size: 16px;
+	font-weight: bold;
+	margin: 10px 5px;
+}
+
+.profile{
+	font-size: 22px;
+	text-align: center;
+	margin: 5px 0;
+}
+
+.logout_bt{
+	width: 100px;
+	height: 30px;
+	//float: right;
+	margin: 15px auto;
+}
+
+/**** 회원 정보 수정   **/
+.fixUser{
+	width: 80%;
+	height: 80%;
+	//border: 2px solid red;
+	margin: 30px auto;
+}
+/*회원정보 수정 입력칸*/
+.fix_input{
+	width: 270px;
+	height: 30px;
+	display: inline-block;
+	margin: 10px auto;
+	margin-top: 3px;
+}
+/*출퇴근 버튼*/
+.work_bt{
+	width: 100px;
+	height: 40px;
+	display: inline-block;
+	margin: 0 20px;
+}
+
+
